@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCC ThreeJS Demo</title>
+    <style>
+        body{margin:0;overflow:hidden;font-family:Arial, sans-serif;}
+        .marker{position:relative;}
+        .marker-icon {
+            width: 25px;
+            height: 25px;
+            background-image: url('https://wallabyway.github.io/markupExt/img/icons.png'); /* adjust path */
+            background-size: 100px 25px; /* 1024 → 100px = scale factor of 0.09765625 */
+            background-position: 0px 0px; /* 3 × 25px = 75px (for 4th icon) */
+            background-repeat: no-repeat;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        .marker-tooltip{
+          position:absolute;right:38px;top:-12px;
+          background:rgba(0,0,0,.5);color:rgb(173, 205, 252);
+          padding:4px 8px;border-radius:4px;font-size:12px;white-space:nowrap;
+        }
+        .marker:hover .marker-tooltip{visibility:visible;opacity:1;}
+      </style>
+    
+</head>
+<body>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./three/three.module.js",
+                "three/examples/jsm/": "./three/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./app.js"></script>
+
+</body>
+</html>
