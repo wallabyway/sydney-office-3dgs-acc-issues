@@ -38,20 +38,14 @@ Walkthrough Video (Click to see HQ):
    ```
 
 3. **Start the backend server:**
-   (Make sure you have a server that serves `/issues` and the LCC data file)
+   Now you have a server that serves `/issues` endpoint and the static front-end three.js web pages
    ```sh
    node server.mjs
    ```
    > _Or use your preferred method to serve the backend._
 
-4. **Start a static file server for the frontend:**
-   ```sh
-   npx serve .
-   ```
-   _Or use any static server of your choice._
-
-5. **Open the app:**
-   Visit [http://localhost:3000](http://localhost:3000) in your browser.
+4. **Open the app:**
+   Visit [http://localhost:3000/three.html](http://localhost:3000/three.html) in your browser.
 
 ## Usage
 
@@ -67,13 +61,17 @@ Walkthrough Video (Click to see HQ):
 
 ```
 .
-├── app.js                # Main Three.js application
+│                         # (Front End Code)
+├── three.html            # main webpage
+├── app.js                # three.js app code 
 ├── sdk/
-│   └── lcc-0.4.0.js      # LCCRender SDK
-├── server.mjs            # Example backend server (Node.js, ES modules)
-├── public/
-│   └── ...               # Static assets (if any)
-└── README.md
+│   └── lcc-0.4.0.js      # LCCRender SDK to render gaussian splats in three.js
+│
+│
+│
+│                         # (Server Code)
+├── server.mjs            # Example backend server that calls APS Issues API using 3LO (Node.js, ES modules)
+└── auth.mjs              # SSA secure service account auth code to generate 3LO access token
 ```
 
 ## Customization
@@ -96,14 +94,8 @@ Walkthrough Video (Click to see HQ):
 
 ## Troubleshooting
 
-- **Module Import Errors:**  
-  Ensure your import map or static server is correctly configured to serve Three.js and its examples.
-
-- **CORS Issues:**  
-  Make sure your backend server allows requests from your frontend origin.
-
 - **Environment Variables:**  
-  If you use a `.env` file, configure your `launch.json` or use a library like `dotenv` as needed.
+  Use a `.env` file.  Rename the `example.env' and fill in the blanks.
 
 ## License
 
@@ -111,4 +103,4 @@ MIT
 
 ---
 
-**Maintained by:** [Your Name or Organization] 
+**Maintained by:** [Michael Beale - Autodesk] 
