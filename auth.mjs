@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 
 // Add global variables for API URLs and scope
 export const TOKEN_URL = "https://developer.api.autodesk.com/authentication/v2/token";
+const privateKey = process.env.APS_PRIVATE_KEY.replace(/\\n/g, '\n');
 
 // Generates a JWT assertion with RS256 using config credentials.
 export function generateJwtAssertion() {
@@ -13,7 +14,7 @@ export function generateJwtAssertion() {
       exp: Math.floor(Date.now() / 1000) + 300,
       scope: process.env.APS_SCOPE.split(' ')
     },
-    process.env.APS_PRIVATE_KEY,
+    privateKey,
     {
       algorithm: "RS256",
       header: { alg: "RS256", kid: process.env.KEY_ID },
